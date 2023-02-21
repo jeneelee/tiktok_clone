@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import '../../constants/gaps.dart';
-import '../../constants/sizes.dart';
+import 'package:tiktok_clone/constants/gaps.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/login/login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   void onLoginTap(BuildContext context) {
-    Navigator.of(context).pop();
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+      ),
+    );
   }
 
   @override
@@ -19,13 +24,13 @@ class LoginScreen extends StatelessWidget {
             children: const [
               Gaps.v80,
               Text(
-                "Log in to TikTok",
+                "Sign up for TikTok",
                 style: TextStyle(
                     fontSize: Sizes.size24, fontWeight: FontWeight.w700),
               ),
               Gaps.v20,
               Text(
-                "Manage your account, check notifications, comment on videos, and more.",
+                "Create a profile, follow other accounts, make your own videos, and more.",
                 style: TextStyle(
                   fontSize: Sizes.size16,
                   color: Colors.black45,
@@ -46,12 +51,12 @@ class LoginScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Don't have an account?"),
+              const Text('Already have an account?'),
               Gaps.h5,
               GestureDetector(
                 onTap: () => onLoginTap(context),
                 child: Text(
-                  'Sign up',
+                  'Log in',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       color: Theme.of(context).primaryColor),
